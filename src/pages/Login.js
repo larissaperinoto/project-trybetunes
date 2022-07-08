@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import * as userAPI from '../services/userAPI';
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -37,17 +38,21 @@ class Login extends Component {
   render() {
     const { habilityButton, isLoading, redirect } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="login-page">
+        <h1 className="titlePage">Trybe<span>Tunes</span></h1>
         { redirect && <Redirect to="/search" /> }
         {isLoading ? <Loading />
           : (
-            <div>
+            <div className="login-form">
               <label htmlFor="login-name-input">
                 <input
                   type="text"
                   name="login-name-input"
                   data-testid="login-name-input"
+                  placeholder="User"
                   onChange={ this.handleButtonLogin }
+                  className="login-name-input"
+                  id="login-name-input"
                 />
               </label>
               <button
@@ -55,6 +60,7 @@ class Login extends Component {
                 disabled={ habilityButton }
                 data-testid="login-submit-button"
                 onClick={ this.handleSubmitLogin }
+                className="login-submit-button"
               >
                 Entrar
               </button>

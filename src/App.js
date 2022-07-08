@@ -12,7 +12,6 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <p>TrybeTunes</p>
         <Route exact path="/" component={ Login } />
         <Route path="/search" component={ Search } />
         <Route path="/album/:id" render={ (props) => <Album { ...props } /> } />
